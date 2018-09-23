@@ -1,9 +1,13 @@
 import React from 'react';
 import {  mount } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import Root from '../../Root'
 import CommentBox from '../CommentBox';
 
-let wrapped;
+
+
+describe('Comment Box', () =>{
+    let wrapped;
 
 beforeEach(() =>{
     wrapped = mount(<Root><CommentBox/></Root>);
@@ -13,10 +17,10 @@ afterEach(() =>{
     wrapped.unmount();
 })
 
-it('has a textarea and a button', () =>{
+it('has a textarea and 2 buttons', () =>{
     const wrapped = mount(<Root><CommentBox/></Root>);
     expect(wrapped.find('textarea').length).toEqual(1);
-    expect(wrapped.find('button').length).toEqual(1);
+    expect(wrapped.find('button').length).toEqual(2);
 })
 
 describe('the text area ', ()  =>{
@@ -35,5 +39,9 @@ describe('the text area ', ()  =>{
         wrapped.find('form').simulate('submit');
         wrapped.update();
         expect(wrapped.find('textarea').prop('value')).toEqual('')
+    })
+})
+    it('should match snapshot', () =>{
+        expect(toJSON(wrapped)).toMatchSnapshot();
     })
 })

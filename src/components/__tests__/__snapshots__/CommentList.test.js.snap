@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment List component should match the snapshot 1`] = `
+<Component
+  initialState={
+    Object {
+      "comments": Array [
+        "comment",
+        "comment1",
+        "blah blah",
+      ],
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <Connect(CommentList)>
+      <CommentList
+        comments={
+          Array [
+            "comment",
+            "comment1",
+            "blah blah",
+          ]
+        }
+        dispatch={[Function]}
+      >
+        <div>
+          <ul>
+            <li
+              key="blah blah"
+            >
+              blah blah
+            </li>
+            <li
+              key="comment1"
+            >
+              comment1
+            </li>
+            <li
+              key="comment"
+            >
+              comment
+            </li>
+          </ul>
+        </div>
+      </CommentList>
+    </Connect(CommentList)>
+  </Provider>
+</Component>
+`;
