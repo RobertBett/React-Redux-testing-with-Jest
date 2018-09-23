@@ -27,11 +27,13 @@ describe('Intergration Tests', () => {
     
     it('can fetch a list of comments and display them', (done) =>{
         wrapped.find('#fetch-button').simulate('click');
-        setTimeout(() => {
+
+        moxios.wait(() => {
             wrapped.update()
             expect(wrapped.find('li').length).toEqual(2);   
             done()
-        }, 1000);
+            wrapped.unmount();
+        });
     })
     it('should match the snapshot', () =>{
         expect(toJSON(wrapped)).toMatchSnapshot()
