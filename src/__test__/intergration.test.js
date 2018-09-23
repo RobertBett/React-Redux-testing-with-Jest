@@ -26,10 +26,7 @@ describe('Intergration Tests', () => {
     });
     
     it('can fetch a list of comments and display them', (done) =>{
-        // Attemp to render the entire app
-        // find the fetchComments button and click it 
         wrapped.find('#fetch-button').simulate('click');
-        //expect to find a list of comments 
         setTimeout(() => {
             wrapped.update()
             expect(wrapped.find('li').length).toEqual(2);   
